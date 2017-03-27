@@ -1,0 +1,38 @@
+<html>
+
+<head>
+  <title>Operators</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <label>Enter your score</label>
+    <input type="number" id="user-score">
+    <p id="score-msg"></p>
+  </div>
+</body>
+<script>
+  var pass_mark = 50;
+  var user_score;
+  var msg = document.getElementById("score-msg");
+
+  document.getElementById("user-score")
+    .addEventListener("keyup", function(event) {
+      event.preventDefault();
+      if (event.keyCode == 13) {
+        document.getElementById("user-score").click();
+        user_score = document.getElementById("user-score").value;
+        if (event.keyCode == 13) {
+          document.getElementById("user-score").click();
+          if (user_score >= pass_mark) {
+            msg.innerHTML = 'Level passed';
+          } else {
+            msg.innerHTML = 'Level failed';
+          }
+        }
+      }
+    });
+</script>
+
+</html>
