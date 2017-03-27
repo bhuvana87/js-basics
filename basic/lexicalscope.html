@@ -1,0 +1,48 @@
+<html>
+
+<head>
+  <title>Lexical Scope</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <label>Output</label>
+    <br>
+    <p id="fnOutputX"></p>
+    <p id="fnOutputY"></p>
+  </div>
+</body>
+<script>
+
+  // Lexical scope: JS has lexical scoping within the function blocks. New scope is created when we create new function.
+
+  var outputX = document.getElementById("fnOutputX");
+  var outputY = document.getElementById("fnOutputY");
+  var outerFunc = function() {
+
+    if (true) {
+      var x = 5;
+    }
+
+    var nestedFunc = function() {
+
+      if (true) {
+        var y = 7;
+        console.log(x); // x will be known and 5 is printed
+        outputX.innerHTML = "x: " + x;
+      }
+
+      if (true) {
+        console.log(y); // prints 7
+        outputY.innerHTML = "y: " + y;
+      }
+    }
+    return nestedFunc();
+  }
+
+  var scopeFunction = outerFunc();
+  scopeFunction();
+</script>
+
+</html>
