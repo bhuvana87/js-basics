@@ -1,0 +1,69 @@
+<html>
+
+<head>
+  <title>JS Sample</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <label>Enter number of phones required</label>
+    <input type="number" id="phone-count">
+    <p id="user-val"></p>
+    <p id="msg-txt"></p>
+  </div>
+</body>
+<script>
+  const SPENDING_THRESHOLD = 200;
+  const TAX_RATE = 0.08;
+  const PHONE_PRICE = 99.99;
+  const ACCESSORY_PRICE = 9.99;
+
+  var bank_balance = 500.91;
+  var amount = 0;
+  var userph_count;
+  var actualph_count = 0;
+
+  console.log(userph_count);
+
+  function calculateTax(amount) {
+    return amount * TAX_RATE;
+  }
+
+  function formatAmount(amount) {
+    return "$" + amount.toFixed(2);
+  }
+
+  // buying phones
+  while(amount < bank_balance) {
+
+    // buy new phone
+    amount = amount + PHONE_PRICE;
+
+    // accessory
+    if(amount < SPENDING_THRESHOLD) {
+      amount = amount + ACCESSORY_PRICE;
+    }
+    actualph_count++;
+  }
+
+  // get user value for phone count and disply the possibility of buying it
+
+  document.getElementById("phone-count")
+    .addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode == 13) {
+        document.getElementById("phone-count").click();
+        userph_count = document.getElementById("phone-count").value;   
+        document.getElementById("user-val").innerHTML = "Required No. of Phones: <span>" + userph_count + "</span>";
+        if(userph_count <= actualph_count){
+          document.getElementById("msg-txt").innerHTML = "Your Bank Balance is: <span>$" + bank_balance + "</span><br><br><b>You can afford this purchase.</b>";
+        }
+        else{
+          document.getElementById("msg-txt").innerHTML = "Your Bank Balance is: <span>$" + bank_balance + "</span><br><br><b>You can't afford this purchase :)</b>";
+        }
+    }
+  });
+
+</script>
+</html>

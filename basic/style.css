@@ -1,0 +1,35 @@
+/* Fonts */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+
+/* Default */
+
+body{
+	background: #f7f7f7; 
+}
+.container{
+	width: 70%; 
+	margin: 30px auto;
+	font-family: 'Roboto', sans-serif;
+	text-align: center;
+	font-weight: 300;
+}
+.container label {
+	margin: 0 10px 0;
+}
+.container input{
+	background: #fff;
+	border: solid 1px rgba(0,0,0,0.1);
+	padding: 10px;
+	border-radius: 0;
+	outline: none;
+}
+.container input:focus{
+	border-color: #E44249; 
+}
+.container p span{
+	color: #E44249;
+}
+.container b{
+	font-weight: 500;
+}
