@@ -1,0 +1,43 @@
+<html>
+
+<head>
+  <title>Module pattern sample</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <p>Module pattern example</p>
+    <p>Output in console</p>
+  </div>
+</body>
+<script>
+var Module = (function () {
+
+  var privateMethod = function () {
+    console.log("Javascript samples");
+  };
+
+  var publicMethod1 = function () {
+    console.log("Hello!");
+    privateMethod();
+  };
+
+  var publicMethod2 = function () {
+    console.log("Hi!");
+    privateMethod();
+  };
+  
+  return {
+    publicMethod1: publicMethod1,
+    publicMethod2: publicMethod2
+  };
+
+})();
+
+Module.publicMethod1();
+Module.publicMethod2();
+
+</script>
+
+</html>
